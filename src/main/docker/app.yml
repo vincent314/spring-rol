@@ -1,0 +1,16 @@
+version: '2'
+services:
+    springrol-app:
+        image: springrol
+        external_links:
+            - springrol-mongodb:mongodb
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod
+            - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017
+            - SPRING_DATA_MONGODB_DATABASE=springrol
+        ports:
+            - 8080:8080
+    springrol-mongodb:
+        extends:
+            file: mongodb.yml
+            service: springrol-mongodb

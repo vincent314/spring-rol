@@ -1,0 +1,25 @@
+entity Track{
+	name String,
+    type String,
+    kml String,
+    distance BigDecimal
+}
+
+entity Event{
+	name String,
+    dateTime LocalDate
+    type String,
+    description String
+}
+
+relationship ManyToOne{
+	Event{loop1} to Track
+}
+
+relationship ManyToOne{
+	Event{loop2} to Track
+}
+
+relationship ManyToOne{
+	Event{loop3} to Track
+}
